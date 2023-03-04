@@ -14,25 +14,20 @@
             </header>
 
             <div class="row">
-            <?php 
-            if (have_posts()):
-                while (have_posts()):the_post();
-            ?>
+            <?php if (have_posts()):?>
+                <?php while (have_posts()):the_post();?>
                 <div class="col-md-4">
-                    <?php get_template_part('template_parts/loop','news');?>
+                    <?php get_template_part('template-parts/loop','news');?>
                 </div>
-            <?php 
-                endwhile;
-            endif;
-            ?>
+                <?php endwhile;?>
+            <?endif; ?>
             <p class="sec_btn">
                 <?php
-                    $news = get_term_by('slug', 'news','category');
-                    $news_link = get_term_link($news,'category');
+                $news = get_term_by('slug', 'news','category');
+                $news_link = get_term_link($news,'category');
                 ?>
                 <a href="<?php echo $news_link;?>" class="btn btn-default">最新情報の一覧<i class="fas fa-angle-right"></i></a>
             </p>
-
         </div>
     </section>
 
